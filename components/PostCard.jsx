@@ -12,34 +12,36 @@ const PostCard = ({ post }) => {
                 className='object-top absolute h-80 w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg'
             />
         </div>
-        <h1 className='transition duration-700 text-center mb-8 cursor-pointer hover: text-nouswhite text-4xl tracking-tighter font-black'>
+        <h1 className='transition duration-700 text-center mb-8 cursor-pointer hover: text-nousblack text-4xl tracking-tighter font-black'>
             <Link href={`/post/${post.slug}`}>
                 {post.title}
             </Link>
         </h1>
-        <div className='block lg:flex text-center items-center justify-center mb-8 w-full'>
-            <div className='flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-auto'>
+        <div className='block lg:flex text-center items-center justify-center mb-2 w-full'>
+
+            <div className='flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto ml-auto mr-auto'>
                 <img
                     alt={post.author.name}
                     height="30px"
                     width="30px"
-                    className="align-middle rounded-full mr-3"
+                    className="align-middle rounded-full ml-3 mr-3"
                     src={post.author.photo.url}
                 />
-                <p className='inline align-middle text-nouswhite ml-2 mr-2 text-lg w-30'>{post.author.name}</p>
-                <div className='font-medium text-nouswhite w-50'>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-grey-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <p className='inline align-middle text-nousblack ml-2 mr-2 text-medium text-s '>{post.author.name}</p>
+                <div className='font-medium w-full text-nousblack ml-2 mr-2'>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 inline mr-2 text-grey-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    <span>
-                        {moment(post.createdAt).format('MMM DD, YYYY')}
+                    <span className='inline'>
+                        {moment(post.createdAt).format('MMM DD YYYY')}
                     </span>
                 </div>
             </div>
-            <p className='text-center text-lg text-nouswhite font-normal px-2 lg:px-20 mb-8'>{post.excerpt}</p>
+
+            <p className='text-center text-s text-nousblack font-normal mr-2 ml-2 px-2 lg:px-2 mb-0'>{post.excerpt}</p>
             <div className='text-center'>
                 <Link href={`/post/${post.slug}`}>
-                    <span className='transition duration-500 transform hover:-translate-y-1 inline-block bg-white font-medium rounded-full text-black px-8 py-3 cursor-pointer'>Continue reading</span>
+                    <span className='transition duration-500 transform hover:-translate-y-1 inline-block bg-gradient-to-r from-emerald-400 to-green-400 rounded-full text-white px-8 py-3 cursor-pointer font-bold'>Continue</span>
                 </Link>
             </div>
         </div>
